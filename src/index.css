@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 30% 97%;
+    --foreground: 222 45% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 45% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 45% 11%;
+    --primary: 222 47% 14%;
+    --primary-foreground: 36 100% 97%;
+    --primary-glow: 222 55% 24%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 32 100% 60%;
+    --secondary: 218 25% 93%;
+    --secondary-foreground: 222 45% 11%;
+    --muted: 218 25% 94%;
+    --muted-foreground: 220 12% 42%;
+    --destructive: 0 78% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 65% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 95% 50%;
+    --warning-foreground: 222 45% 11%;
+    --info: 210 90% 50%;
+    --info-foreground: 0 0% 100%;
+    --border: 218 20% 88%;
+    --input: 218 20% 90%;
+    --ring: 24 95% 53%;
+    --radius: 0.75rem;
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 14%) 0%, hsl(222 55% 24%) 60%, hsl(24 80% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(32 100% 60%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(218 30% 98%) 100%);
+    --gradient-stripe: repeating-linear-gradient(45deg, hsl(24 95% 53% / 0.08) 0 12px, transparent 12px 24px);
+    --shadow-glow: 0 10px 30px -10px hsl(24 95% 53% / 0.45);
+    --shadow-lg: 0 18px 40px -12px hsl(222 45% 11% / 0.18);
+  }
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 218 30% 95%;
+    --card: 222 45% 10%;
+    --card-foreground: 218 30% 95%;
+    --popover: 222 45% 10%;
+    --popover-foreground: 218 30% 95%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 222 45% 11%;
+    --secondary: 222 40% 16%;
+    --secondary-foreground: 218 30% 95%;
+    --muted: 222 40% 14%;
+    --muted-foreground: 218 15% 65%;
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --border: 222 40% 18%;
+    --input: 222 40% 18%;
+    --ring: 24 95% 53%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .bg-stripes { background-image: var(--gradient-stripe); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-elevated { box-shadow: var(--shadow-lg); }
+  .text-balance { text-wrap: balance; }
+}
+
+@keyframes truck-move {
+  0% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  100% { transform: translateX(-10px); }
+}
+.animate-truck { animation: truck-move 4s ease-in-out infinite; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
