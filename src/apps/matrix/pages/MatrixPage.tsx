@@ -121,7 +121,7 @@ export const MatrixPage = () => {
             <div className="flex-1 min-w-[260px]">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-glow">DailyMail · 3PL</p>
               <h1 className="font-display text-3xl font-bold sm:text-4xl text-balance">
-                Матрица подрядчиков
+                Матрица контрагентов
               </h1>
               <p className="mt-2 max-w-2xl text-sm text-primary-foreground/75">
                 Единая панель управления всеми логистическими партнёрами: договоры, тарифы, услуги и финансовые показатели по кварталам.
@@ -132,7 +132,7 @@ export const MatrixPage = () => {
                 onClick={() => setCreating(emptyContractor())}
                 className="bg-gradient-accent text-accent-foreground hover:opacity-90 shadow-glow"
               >
-                <Plus className="mr-2 h-4 w-4" /> Добавить подрядчика
+                <Plus className="mr-2 h-4 w-4" /> Добавить контрагента
               </Button>
               <AlertDialog>
                 <AlertDialogTrigger asChild>
@@ -144,7 +144,7 @@ export const MatrixPage = () => {
                   <AlertDialogHeader>
                     <AlertDialogTitle>Сбросить все изменения?</AlertDialogTitle>
                     <AlertDialogDescription>
-                      Все правки, добавленные подрядчики и данные по кварталам будут удалены. Восстановятся данные из исходной матрицы.
+                      Все правки, добавленные контрагенты и данные по кварталам будут удалены. Восстановятся данные из исходной матрицы.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
@@ -164,7 +164,7 @@ export const MatrixPage = () => {
         {/* KPI */}
         <section className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           <KpiCard
-            label="Всего подрядчиков"
+            label="Всего контрагентов"
             value={stats.total}
             icon={Building2}
             tone="accent"
@@ -251,7 +251,7 @@ export const MatrixPage = () => {
           <div>
             <div className="mb-3 flex items-center justify-between gap-3 flex-wrap">
               <h2 className="font-display text-xl font-semibold">
-                Подрядчики <span className="text-muted-foreground font-normal">· {filtered.length}</span>
+                Контрагенты <span className="text-muted-foreground font-normal">· {filtered.length}</span>
               </h2>
               {statusFilter && (
                 <button
@@ -271,7 +271,7 @@ export const MatrixPage = () => {
                 ))}
                 {filtered.length === 0 && (
                   <Card className="col-span-full p-10 text-center text-muted-foreground">
-                    Подрядчики не найдены
+                    Контрагенты не найдены
                   </Card>
                 )}
               </div>
@@ -281,7 +281,7 @@ export const MatrixPage = () => {
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>Подрядчик</TableHead>
+                        <TableHead>Контрагент</TableHead>
                         <TableHead>Категория</TableHead>
                         <TableHead>Юр. лицо</TableHead>
                         <TableHead>Договор до</TableHead>
@@ -337,14 +337,14 @@ export const MatrixPage = () => {
                 </TabsContent>
               </Tabs>
               <p className="px-5 pb-5 text-xs text-muted-foreground">
-                Откройте карточку подрядчика, чтобы заполнить данные по периодам.
+                Откройте карточку контрагента, чтобы заполнить данные по периодам.
               </p>
             </Card>
           </aside>
         </section>
 
         <footer className="pt-6 pb-2 text-center text-xs text-muted-foreground">
-          Источник: «Матрица подрядчиков 3PL» · DailyMail Operations · Изменения сохраняются локально в браузере
+          Источник: «Матрица контрагентов 3PL» · DailyMail Operations · Изменения сохраняются локально в браузере
         </footer>
       </main>
 

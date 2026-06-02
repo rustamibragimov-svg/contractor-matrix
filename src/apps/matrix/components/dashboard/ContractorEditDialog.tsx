@@ -56,7 +56,7 @@ export function ContractorEditDialog({ contractor, open, onOpenChange, isNew }: 
 
   const handleSave = () => {
     if (!draft.name.trim()) {
-      toast.error("Укажите название подрядчика");
+      toast.error("Укажите название контрагента");
       return;
     }
     if (draft.name.length > MAX.short) {
@@ -78,13 +78,13 @@ export function ContractorEditDialog({ contractor, open, onOpenChange, isNew }: 
       const v = qDraft[q];
       if (v) updateQuarter(draft.id, q, v);
     });
-    toast.success(isNew ? "Подрядчик добавлен" : "Изменения сохранены");
+    toast.success(isNew ? "Контрагент добавлен" : "Изменения сохранены");
     onOpenChange(false);
   };
 
   const handleDelete = () => {
     removeContractor(draft.id);
-    toast.success("Подрядчик удалён");
+    toast.success("Контрагент удалён");
     onOpenChange(false);
   };
 
@@ -98,7 +98,7 @@ export function ContractorEditDialog({ contractor, open, onOpenChange, isNew }: 
             </div>
             <div className="flex-1">
               <DialogTitle className="font-display text-2xl text-balance">
-                {isNew ? "Новый подрядчик" : draft.name}
+                {isNew ? "Новый контрагент" : draft.name}
               </DialogTitle>
               {!isNew && (
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -113,7 +113,7 @@ export function ContractorEditDialog({ contractor, open, onOpenChange, isNew }: 
         <Separator className="my-2" />
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <Field label="Название подрядчика" required>
+          <Field label="Название контрагента" required>
             <Input value={draft.name} maxLength={MAX.short} onChange={(e) => set("name", e.target.value)} />
           </Field>
           <Field label="Категория">
@@ -126,7 +126,7 @@ export function ContractorEditDialog({ contractor, open, onOpenChange, isNew }: 
               </SelectContent>
             </Select>
           </Field>
-          <Field label="Юридическое лицо подрядчика">
+          <Field label="Юридическое лицо контрагента">
             <Input value={draft.legalEntity} maxLength={MAX.short} onChange={(e) => set("legalEntity", e.target.value)} />
           </Field>
           <Field label="Юр. лицо DailyMail">
@@ -231,7 +231,7 @@ export function ContractorEditDialog({ contractor, open, onOpenChange, isNew }: 
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Удалить подрядчика?</AlertDialogTitle>
+                  <AlertDialogTitle>Удалить контрагента?</AlertDialogTitle>
                   <AlertDialogDescription>
                     Это действие нельзя отменить. «{draft.name}» будет удалён вместе со всеми данными по кварталам.
                   </AlertDialogDescription>
